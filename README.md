@@ -11,6 +11,10 @@ npm install
 npm run dev
 ```
 
+## CI
+
+GitHub Actions runs on pushes and pull requests targeting `main` or `master`. It installs dependencies with Node 22, runs lint, and builds the app with `VITE_API_URL=/api`.
+
 ## Environment
 
 Copy `.env.example` to `.env` and set `VITE_API_URL` to the backend base URL (the included Vite proxy setup uses `/api`). Set `VITE_REGISTER_ROLE` to the role string accepted by the backend before registering; registration will not be sent while it is empty.
