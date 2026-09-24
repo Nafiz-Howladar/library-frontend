@@ -9,6 +9,7 @@ import DashboardPage from '../pages/DashboardPage.jsx'
 import LoginPage from '../pages/LoginPage.jsx'
 import MyBooksPage from '../pages/MyBooksPage.jsx'
 import NotFoundPage from '../pages/NotFoundPage.jsx'
+import ProfilePage from '../pages/ProfilePage.jsx'
 import RegisterPage from '../pages/RegisterPage.jsx'
 import ReservationsPage from '../pages/ReservationsPage.jsx'
 import ProtectedRoute from './ProtectedRoute.jsx'
@@ -25,6 +26,7 @@ function AppRoutes() {
       <Route path="/reservations" element={<ProtectedRoute><ReservationsPage /></ProtectedRoute>} />
       <Route path="/my-books" element={<ProtectedRoute><MyBooksPage /></ProtectedRoute>} />
       <Route path="/dashboard" element={<ProtectedRoute><DashboardPage /></ProtectedRoute>} />
+      <Route path="/profile" element={<ProtectedRoute><ProfilePage /></ProtectedRoute>} />
       <Route path="/admin" element={<RequireRole><AdminDashboardPage /></RequireRole>} />
       <Route path="/admin/books" element={<RequireRole><AdminBooksPage /></RequireRole>} />
       <Route path="/admin/issues" element={<RequireRole><AdminIssuesPage /></RequireRole>} />

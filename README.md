@@ -20,7 +20,7 @@ Copy `.env.example` to `.env` and set `VITE_API_URL` to the backend base URL (th
 - `/books` — public book catalog
 - `/books/:id` — book details and reservation action
 - `/login` and `/register` — account access
-- `/dashboard`, `/my-books`, and `/reservations` — signed-in account pages
+- `/profile`, `/dashboard`, `/my-books`, and `/reservations` — signed-in account pages
 
 The catalog uses the public `GET /book/all` endpoint. The account pages use protected backend endpoints and display `N/A` for fields the backend response does not provide.
 

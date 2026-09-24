@@ -34,6 +34,9 @@ api.interceptors.response.use(
     debugResponse(error.config, error.response?.status ?? 'network error', error.response?.data ?? error.message)
     const authFailure404 = error.response?.status === 404 && error.config?.authFailure404 &&
       typeof error.response.data?.detail === 'string' && error.response.data.detail.toLowerCase().includes('authentication')
+    if (error.response?.status === 401 && error.config?.preserveSessionOn401) {
+      return Promise.reject(error)
+    }
     if (error.response?.status === 401) {
       if ((error.config?.requiresAuth || error.config?.headers?.Authorization) && window.location.pathname !== '/login') {
         sessionStorage.setItem('library_return_to', `${window.location.pathname}${window.location.search}${window.location.hash}`)
@@ -86,6 +89,17 @@ export async function cancelReservation(reservationId) {
 export async function getIssues() {
   const response = await api.get('/reserve/issue', { requiresAuth: true, authFailure404: true })
   return response.data
+}
+
+export async function editUser(changes) {
+  return api.put('/edituser', changes, { requiresAuth: true })
+}
+
+export async function changePassword(currentPassword, newPassword) {
+  return api.put('/passwordchange', {
+    current_password: currentPassword,
+    new_password: newPassword,
+  }, { requiresAuth: true, preserveSessionOn401: true })
 }
 
 export default api

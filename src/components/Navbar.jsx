@@ -13,6 +13,7 @@ function Navbar() {
         <nav className={isAdmin ? 'nav-links nav-admin-links' : 'nav-links'} aria-label="Main navigation">
           <NavLink to="/books" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Books</NavLink>
           {isAuthenticated ? <>
+            <NavLink to="/profile" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Profile</NavLink>
             <NavLink to="/my-books" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>My Books</NavLink>
             <NavLink to="/reservations" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>My Reservations</NavLink>
             <NavLink to="/dashboard" className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>Dashboard</NavLink>
