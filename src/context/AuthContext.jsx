@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { login as loginRequest } from '../services/auth.js'
 import AuthContext from './authContextValue.js'
+import { isAdmin as hasAdminRole } from '../config/roles.js'
+import { decodeJwt } from '../utils/jwt.js'
 
 const TOKEN_KEY = 'library_access_token'
 
@@ -25,6 +27,9 @@ export function AuthProvider({ children }) {
     setToken(null)
   }, [])
 
-  const value = useMemo(() => ({ token, login, logout, isAuthenticated: Boolean(token) }), [token, login, logout])
+  const user = useMemo(() => token ? decodeJwt(token) : null, [token])
+  // This role check only controls the UI; the backend enforces real permissions.
+  const isAdmin = hasAdminRole(user?.role)
+  const value = useMemo(() => ({ token, user, login, logout, isAuthenticated: Boolean(token), isAdmin }), [token, user, login, logout, isAdmin])
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
