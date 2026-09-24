@@ -1,6 +1,8 @@
 # Page & Pine Library
 
-A responsive library catalog built with React and Vite. Browse, search, and filter books from the library backend. The login page is a UI preview and is not connected to authentication.
+A responsive library catalog built with React and Vite. Browse, search, and filter books from the library backend, and sign in with a library account.
+
+For this learning project, the access token is stored in `localStorage`, which is exposed to cross-site scripting (XSS) if the app has a script injection vulnerability.
 
 ## Run locally
 

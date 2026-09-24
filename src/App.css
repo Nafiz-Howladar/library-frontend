@@ -6,6 +6,7 @@
 .nav-links { display: flex; align-items: center; gap: 34px; }
 .nav-link { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 600; transition: color .15s ease; }
 .nav-link:hover, .nav-link.active { color: var(--green); }
+.nav-button { padding: 0; border: 0; background: transparent; font: inherit; cursor: pointer; }
 .site-main { flex: 1; }
 .page-shell { max-width: 1160px; padding: 0 32px 82px; margin: auto; }
 .page-intro { padding: 74px 0 70px; }
@@ -72,6 +73,7 @@
 .form-input { display: block; width: 100%; height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--ink); font: inherit; font-size: 14px; }
 .login-submit { width: 100%; margin-top: 23px; }
 .login-note { margin: 16px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+.login-error { margin: 15px 0 0; color: #9a4c38; font-size: 12px; text-align: center; }
 .not-found { min-height: 60vh; border: 0; background: transparent; }
 .not-found h1 { margin: 15px 0; font-size: clamp(42px, 6vw, 64px); }
 .not-found p { margin-bottom: 20px; }
